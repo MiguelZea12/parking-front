@@ -1,52 +1,49 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Header from './components/Header';
-import VideoControl from './components/videoControls/VideoControls';
-import Charts from './components/charts/Charts';
-import ParkingMap from './components/parkingMap/ParkingMap';
-import { controlVideoAction } from '../services/apiService';
-import '../styles/styles.css';
+import Sidebar from './components/Sidebar';
+import Home from './pages/home/Home';
+import Estadistic from './pages/estadistic/pages';
+import MapaPage from './pages/mapa/MapaPage';
+import ConfiguracionPage from './pages/configuracion/ConfiguracionPage';
+import Login from './pages/auth/Login';
+import { isAuthenticated } from '../services/authService';
 
-const App: React.FC = () => {
-  const [videoSrc, setVideoSrc] = useState<string>('https://3kfc8nmn-5000.use.devtunnels.ms/video_feed');
+const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+  const [auth, setAuth] = useState(isAuthenticated());
 
-  const controlVideo = async (action: string) => {
-    try {
-      await controlVideoAction(action);
-    } catch (error) {
-      console.error('Error controlling video:', error);
-    }
-  };
+  useEffect(() => {
+    setAuth(isAuthenticated());
+  }, [location]);
 
-  const handleVideoError = () => {
-    console.error('Error cargando el video. Intentando reconectar...');
-    setVideoSrc('');
-    setTimeout(() => {
-      setVideoSrc('https://3kfc8nmn-5000.use.devtunnels.ms/video_feed');
-    }, 1000);
-  };
+  const isLoginPage = location.pathname === "/";
 
   return (
-    <div>
-      <Header />
-      <div className="container">
-        <div className="left-column">
-          <div className="video-container">
-            <img
-              src={videoSrc}
-              alt="Video de Estacionamiento"
-              onError={handleVideoError}
-            />
-            <VideoControl controlVideo={controlVideo} />
-          </div>
-          <div className="map-wrapper">
-            <ParkingMap />
-          </div>
-        </div>
-        <div className="right-column">
-          <Charts />
-        </div>
-      </div>
+    <div className="min-h-screen bg-gray-50">
+      {!isLoginPage && auth && <Header isOpen={isOpen} onToggle={() => setIsOpen(!isOpen)} />}
+      {!isLoginPage && auth && <Sidebar isOpen={isOpen} onClose={() => setIsOpen(false)} />}
+      <main className={auth && !isLoginPage ? "pt-16" : ""}>
+        {children}
+      </main>
     </div>
+  );
+};
+
+const App: React.FC = () => {
+  return (
+    <Router>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/home" element={isAuthenticated() ? <Home /> : <Navigate to="/" />} />
+          <Route path="/estadisticas" element={isAuthenticated() ? <Estadistic /> : <Navigate to="/" />} />
+          <Route path="/mapa" element={isAuthenticated() ? <MapaPage /> : <Navigate to="/" />} />
+          <Route path="/configuracion" element={isAuthenticated() ? <ConfiguracionPage /> : <Navigate to="/" />} />
+        </Routes>
+      </Layout>
+    </Router>
   );
 };
 
