@@ -1,0 +1,111 @@
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f3f4f6;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #4a5568;
+    margin-bottom: 1rem;
+  }
+
+  label {
+    display: block; /* Asegura que las etiquetas estén en su propia línea */
+    text-align: left; /* Alinea el texto a la izquierda */
+    margin-bottom: 0.5rem; /* Da un poco de espacio entre el label y el input */
+    font-weight: 600; /* Para resaltar el texto de la etiqueta */
+  }
+  
+  /* Contenedor principal */
+  .login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    background-color: #f3f4f6;
+  }
+  
+  /* Contenedor del formulario */
+  .login-container {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    width: 100%;
+    text-align: center;
+  }
+  
+  /* Logo */
+  .logo-container {
+    margin-bottom: 20px;
+  }
+  
+  .logo {
+    width: 120px; /* Ajusta el tamaño según lo necesites */
+    height: auto;
+  }
+  
+  /* Formulario */
+  .login-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Estilos de los inputs */
+  .login-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+  }
+  
+  .login-input:focus {
+    border-color: #3182ce;
+    outline: none;
+  }
+  
+  /* Estilo del mensaje de error */
+  .error-message {
+    color: #f56565;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Botón de enviar */
+  .submit-button {
+    background-color: #3182ce;
+    color: #fff;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .submit-button:hover {
+    background-color: #2b6cb0;
+  }
+  
+  /* Efectos de transición */
+  .submit-button:active {
+    background-color: #2b6cb0;
+  }
+  
+  .submit-button:focus {
+    outline: none;
+  }
+  

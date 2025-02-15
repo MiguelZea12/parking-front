@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { login } from '../../../services/authService';
+import '../../../styles/Login.css';
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -12,7 +13,7 @@ const Login: React.FC = () => {
     e.preventDefault();
     try {
       await login(email, password);
-      navigate('/home'); // Corregido: redirigir a /home
+      navigate('/home'); // Redirigir a /home
     } catch (err) {
       if (err instanceof Error) {
         setError(err.message);
@@ -23,16 +24,21 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100">
-      <div className="bg-white p-6 rounded shadow-md w-96">
+    <div className="login-wrapper">
+      <div className="login-container">
+        <div className="logo-container">
+          <img src="src/assets/eye.png" alt="Logo" className="logo" />
+        </div>
+
         <h2 className="text-xl font-semibold text-gray-700 mb-4">Iniciar Sesión</h2>
-        {error && <p className="text-red-500 text-sm mb-2">{error}</p>}
-        <form onSubmit={handleSubmit}>
+        {error && <p className="error-message">{error}</p>}
+        <form className="login-form" onSubmit={handleSubmit}>
           <div className="mb-4">
             <label className="block text-gray-600">Correo electrónico</label>
             <input
               type="email"
-              className="w-full px-3 py-2 border rounded focus:outline-none"
+              className="login-input"
+              placeholder="correo electrónico"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -42,13 +48,14 @@ const Login: React.FC = () => {
             <label className="block text-gray-600">Contraseña</label>
             <input
               type="password"
-              className="w-full px-3 py-2 border rounded focus:outline-none"
+              className="login-input"
+              placeholder="Contraseña"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
             />
           </div>
-          <button type="submit" className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600">
+          <button type="submit" className="submit-button">
             Ingresar
           </button>
         </form>
