@@ -70,7 +70,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
                   : isOpen ? 'translate-x-0' : '-translate-x-full'
                 } transition-colors duration-200`}
     >
-      <nav className="flex flex-col h-full py-4">
+      <nav className="flex flex-col h-full py-6">
         {menuItems.map((item, index) => (
           <div key={index} className="w-full">
             {!item.subModules ? (
@@ -115,7 +115,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
                       <Link
                         key={subIndex}
                         to={sub.path}
-                        className={`block px-6 py-2 text-gray-600 dark:text-gray-400
+                        className={`block px-6 py-2 text-gray-600 dark:text-white
                                    ${location.pathname === sub.path 
                                       ? 'bg-parking-gradient text-white' 
                                       : 'hover:text-parking-blue hover:bg-parking-blue/10 dark:hover:bg-parking-blue/20'

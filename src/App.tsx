@@ -5,6 +5,7 @@ import Sidebar from './components/Sidebar';
 import Home from './pages/home/Home';
 import Estadistic from './pages/estadistic/Estadistic';
 import MapaPage from './pages/mapa/MapaPage';
+import Users from './pages/database/Users';
 import ConfiguracionPage from './pages/configuracion/ConfiguracionPage';
 import Login from './pages/auth/Login';
 import { isAuthenticated } from './services/authService';
@@ -57,6 +58,7 @@ const App: React.FC = () => {
             <Route path="/home" element={isAuthenticated() ? <Home /> : <Navigate to="/" />} />
             <Route path="/estadisticas" element={isAuthenticated() ? <Estadistic /> : <Navigate to="/" />} />
             <Route path="/mapa" element={isAuthenticated() ? <MapaPage /> : <Navigate to="/" />} />
+            <Route path="/database/usuarios" element={isAuthenticated() ? <Users /> : <Navigate to="/" />} />
             <Route path="/configuracion" element={isAuthenticated() ? <ConfiguracionPage /> : <Navigate to="/" />} />
           </Routes>
         </Layout>
