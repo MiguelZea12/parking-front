@@ -10,7 +10,7 @@ const VideoControls: React.FC<VideoControlsProps> = ({ controlVideo }) => {
     <div className="flex flex-wrap gap-3 justify-center sm:justify-start">
       <button
         onClick={() => controlVideo('play')}
-        className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors gap-2"
+        className="inline-flex items-center px-4 py-2 bg-parking-blue text-white dark:bg-parking-blue dark:text-white rounded-md hover:bg-blue-700 transition-colors gap-2"
       >
         <Play size={16} />
         <span>Reproducir</span>

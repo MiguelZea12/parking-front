@@ -6,15 +6,19 @@ export const login = async (email: string, password: string) => {
     });
   
     const data = await response.json();
+    console.log("Respuesta del servidor:", data); // 🔍 Verifica que se recibe bien
   
     if (response.ok) {
       localStorage.setItem('token', data.access_token);
       localStorage.setItem('user', JSON.stringify(data.user)); 
+      console.log("Token guardado en localStorage:", localStorage.getItem('token')); // 🔍 Verifica que se guarda
+  
       return data;
     } else {
       throw new Error(data.message || 'Error en el inicio de sesión');
     }
   };
+  
   
   export const logout = async () => {
     const token = localStorage.getItem('token');
@@ -37,3 +41,5 @@ export const login = async (email: string, password: string) => {
   export const isAuthenticated = () => {
     return !!localStorage.getItem('token');
   };
+  
+  

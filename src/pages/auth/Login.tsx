@@ -1,35 +1,45 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { login } from '../../../services/authService';
+import { login, isAuthenticated } from '../../services/authService';
+import parkingEyesLogo from '../../assets/img/ParkingEyes1.png';
+import { Car, Bell, BarChart } from "lucide-react";
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isAuthenticated()) {
+      console.log("✅ Usuario autenticado, redirigiendo a /home");
+      navigate('/home', { replace: true });
+    }
+  }, []); // Se ejecuta solo una vez
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsLoading(true);
     try {
       await login(email, password);
-      navigate('/home');
+      console.log("✅ Inicio de sesión exitoso, redirigiendo a /home");
+      navigate('/home', { replace: true });
     } catch (err) {
-      console.error(err);
+      console.error("❌ Error al iniciar sesión:", err);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#fafbfc] p-4">
       <div className="w-full max-w-[1000px] mx-auto">
-        <div className="bg-white rounded-3xl flex overflow-visible shadow-[0_20px_40px_rgba(0,0,0,0.2)]">
+        <div className="bg-white rounded-3xl flex flex-col sm:flex-row overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.2)]">
           {/* Login Side */}
           <div className="flex-1 p-8 relative">
             <div className="text-center">
-              <img 
-                src="/src/assets/ParkingEyes1.png" 
-                alt="ParkingEyes Logo" 
-                className="w-[200px] h-auto inline-block"
-              />
+              <img src={parkingEyesLogo} alt="ParkingEyes Logo" className="w-[200px] h-auto inline-block" />
             </div>
 
             <form onSubmit={handleSubmit}>
@@ -38,7 +48,7 @@ const Login: React.FC = () => {
                   Correo
                 </label>
                 <input
-                  type="text"
+                  type="email"
                   id="txt-usuario"
                   required
                   value={email}
@@ -77,9 +87,14 @@ const Login: React.FC = () => {
 
               <button
                 type="submit"
-                className="w-full py-3 px-3 bg-gradient-to-r from-black to-[#00A8E8] text-white rounded-lg font-semibold cursor-pointer transition-opacity hover:opacity-90 my-6"
+                className="w-full py-3 px-3 bg-gradient-to-r from-black to-[#00A8E8] text-white rounded-lg font-semibold cursor-pointer transition-opacity hover:opacity-90 my-6 flex items-center justify-center"
+                disabled={isLoading}
               >
-                Iniciar Sesión
+                {isLoading ? (
+                  <div className="animate-spin rounded-full h-5 w-5 border-t-2 border-white"></div>
+                ) : (
+                  "Iniciar Sesión"
+                )}
               </button>
 
               <p className="text-center text-sm text-gray-500">
@@ -91,30 +106,42 @@ const Login: React.FC = () => {
             </form>
           </div>
 
-          {/* Promo Side */}
-          <div className="flex-1 bg-gradient-to-br from-black to-[#00A8E8] p-8 flex flex-col justify-center text-white relative">
-            <h1 className="text-3xl font-bold mb-6 leading-tight">
-              OPTIMIZA TU ESTACIONAMIENTO
-            </h1>
-            <p className="text-lg leading-relaxed mb-4 opacity-90">
-              Sistema inteligente de monitoreo que utiliza visión computarizada para 
-              identificar espacios disponibles y ocupados en tiempo real.
-            </p>
-            <ul className="space-y-4 text-lg opacity-90">
-              <li className="flex items-center">
-                <span className="mr-2">•</span>
-                Detección automática de espacios
-              </li>
-              <li className="flex items-center">
-                <span className="mr-2">•</span>
-                Notificaciones en tiempo real
-              </li>
-              <li className="flex items-center">
-                <span className="mr-2">•</span>
-                Reportes detallados
-              </li>
-            </ul>
-          </div>
+{/* Promo Side - Mejorado con Lucide-React */}
+<div className="hidden sm:flex flex-1 bg-gradient-to-br from-black to-[#00A8E8] p-10 flex-col justify-center text-white relative">
+  {/* Efecto de fondo */}
+  <div className="absolute inset-0 bg-black/40 rounded-3xl"></div>
+  
+  <div className="relative z-10">
+    <h1 className="text-4xl font-extrabold mb-6 leading-tight text-white animate-fade-in">
+      Optimiza Tu <span className="text-[#00A8E8]">Estacionamiento</span>
+    </h1>
+    
+    <p className="text-lg leading-relaxed mb-4 opacity-90">
+      Sistema inteligente de monitoreo con visión computarizada para detectar espacios disponibles y ocupados en tiempo real.
+    </p>
+
+    {/* Beneficios con iconos de Lucide-React */}
+    <ul className="space-y-4 text-lg opacity-90">
+      <li className="flex items-center">
+        <Car className="w-6 h-6 mr-3 text-[#00A8E8]" />
+        Detección automática de espacios
+      </li>
+      <li className="flex items-center">
+        <Bell className="w-6 h-6 mr-3 text-[#00A8E8]" />
+        Notificaciones en tiempo real
+      </li>
+      <li className="flex items-center">
+        <BarChart className="w-6 h-6 mr-3 text-[#00A8E8]" />
+        Reportes detallados
+      </li>
+    </ul>
+
+    {/* Botón CTA */}
+    <a href="/info" className="mt-6 inline-block bg-[#00A8E8] text-black font-semibold py-3 px-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:bg-white">
+      Más información
+    </a>
+  </div>
+</div>
         </div>
       </div>
     </div>
