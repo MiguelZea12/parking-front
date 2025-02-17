@@ -317,42 +317,40 @@ const LandingPage: React.FC = () => {
     <div className="bg-white">
       <Navbar />
       
-      <section id="revolucion-estacionamiento" className="min-h-screen hero-section overflow-hidden">
-        <div className="container full-screen mx-auto px-6 lg:px-12 py-24 lg:py-32">
-          <div className="flex flex-col lg:flex-row items-start justify-between gap-16">
-            {/* Contenido del Hero */}
-            <div className="lg:w-1/2 space-y-8 z-10">
+      <section id="inicio" className="min-h-screen hero-section overflow-hidden bg-gray-900">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-12 py-12 sm:py-24 lg:py-32">
+          <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-8 lg:gap-16">
+            {/* Hero Content */}
+            <div className="lg:w-1/2 space-y-6 lg:space-y-8 z-10 text-center lg:text-left">
               <div className="space-y-4">
-                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight py-10">
-                  <span className="text-white block mb-2">ParkingEyes:</span>
-                  <span className="text-white block mb-2">La Revolución</span>
-                  <span className="text-white block mb-2">del</span>
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold leading-tight py-4 lg:py-10">
+                  <span className="text-white block mb-1 lg:mb-2">ParkingEyes:</span>
+                  <span className="text-white block mb-1 lg:mb-2">La Revolución</span>
+                  <span className="text-white block mb-1 lg:mb-2">del</span>
                   <span className="text-[#00A8E8] block">
-                    Estacionamiento
-                    <br />
-                    Inteligente
+                    Estacionamiento<br />Inteligente
                   </span>
                 </h1>
-                <p className="text-lg sm:text-xl text-gray-100 leading-relaxed max-w-2xl mt-8">
+                <p className="text-base sm:text-lg lg:text-xl text-gray-100 leading-relaxed max-w-2xl mt-4 lg:mt-8 mx-auto lg:mx-0">
                   Sistema de monitoreo inteligente con IA para optimizar y asegurar espacios de 
                   estacionamiento. Revoluciona la forma de gestionar tu estacionamiento.
                 </p>
               </div>
               
-              <div className="flex flex-wrap gap-6 pt-8">
-                <button className="btn-primary hover-lift">
+              <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 sm:gap-6 pt-4 lg:pt-8">
+                <button className="bg-[#00A8E8] text-white px-8 py-3 rounded-lg hover:bg-[#0096d1] transition-colors w-full sm:w-auto">
                   Conoce Más
                 </button>
-                <button className="btn-outline hover-lift">
+                <button className="border-2 border-[#00A8E8] text-white px-8 py-3 rounded-lg hover:bg-[#00A8E8]/10 transition-colors w-full sm:w-auto">
                   Ver Demo
                 </button>
               </div>
             </div>
 
-            {/* Contenedor derecho con imagen y estadísticas */}
-            <div className="lg:w-1/2 flex flex-col space-y-8">
-              {/* Imagen del Hero */}
-              <div className="relative">
+            {/* Right Container */}
+            <div className="lg:w-1/2 flex flex-col space-y-8 mt-8 lg:mt-0">
+              {/* Hero Image */}
+              <div className="relative px-4 sm:px-0">
                 <div className="relative z-10 transform hover:scale-105 transition-duration-500">
                   <div className="absolute -inset-0.5 bg-gradient-to-r from-[#00A8E8] to-blue-600 rounded-3xl blur opacity-30"></div>
                   <img 
@@ -360,15 +358,15 @@ const LandingPage: React.FC = () => {
                     alt="AI Parking System" 
                     className="relative rounded-3xl shadow-2xl w-full h-auto max-w-full mx-auto object-cover"
                   />
-                  {/* Efectos de luz */}
-                  <div className="absolute -top-20 -right-20 w-72 h-72 bg-[#00A8E8] rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
-                  <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-blue-600 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+                  {/* Light Effects */}
+                  <div className="absolute -top-20 -right-20 w-48 sm:w-72 h-48 sm:h-72 bg-[#00A8E8] rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
+                  <div className="absolute -bottom-20 -left-20 w-48 sm:w-72 h-48 sm:h-72 bg-blue-600 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
                 </div>
               </div>
 
-              {/* Estadísticas debajo de la imagen */}
-              <div className="flex justify-center w-full mt-16">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+              {/* Stats */}
+              <div className="flex justify-center w-full mt-8 lg:mt-16">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 w-full">
                   <StatBox endValue={98} suffix="%" label="Precisión" />
                   <StatBox endValue={50} suffix="%" label="Ahorro de Tiempo" />
                   <StatBox endValue={24} suffix="/7" label="Monitoreo" />
@@ -377,48 +375,32 @@ const LandingPage: React.FC = () => {
             </div>
           </div>
         </div>
-    </section>
+      </section>
 
-      {/* Características Principales */}
-      <section id="caracteristicas" className="py-24 bg-white">
+      {/* Features Section */}
+      <section id="caracteristicas" className="py-16 sm:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4">
-          {/* Título y subtítulo con animaciones */}
-          <div className="w-full flex flex-col items-center mb-32">
-            <div className="text-center max-w-2xl">
-              <h2 className="text-6xl font-bold text-gray-900 mb-8 animate-fade-in-up">
-                <span className="inline-block hover:scale-105 transition-transform cursor-default">C</span>
-                <span className="inline-block hover:scale-105 transition-transform cursor-default">a</span>
-                <span className="inline-block hover:scale-105 transition-transform cursor-default">r</span>
-                <span className="inline-block hover:scale-105 transition-transform cursor-default">a</span>
-                <span className="inline-block hover:scale-105 transition-transform cursor-default">c</span>
-                <span className="inline-block hover:scale-105 transition-transform cursor-default">t</span>
-                <span className="inline-block hover:scale-105 transition-transform cursor-default">e</span>
-                <span className="inline-block hover:scale-105 transition-transform cursor-default">r</span>
-                <span className="inline-block hover:scale-105 transition-transform cursor-default">í</span>
-                <span className="inline-block hover:scale-105 transition-transform cursor-default">s</span>
-                <span className="inline-block hover:scale-105 transition-transform cursor-default">t</span>
-                <span className="inline-block hover:scale-105 transition-transform cursor-default">i</span>
-                <span className="inline-block hover:scale-105 transition-transform cursor-default">c</span>
-                <span className="inline-block hover:scale-105 transition-transform cursor-default">a</span>
-                <span className="inline-block hover:scale-105 transition-transform cursor-default">s</span>
+          <div className="w-full flex flex-col items-center mb-16 sm:mb-32">
+            <div className="text-center max-w-2xl px-4">
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-8">
+                Características
               </h2>
-              <h3 className="text-5xl font-bold text-[#00A8E8] mb-8 animate-fade-in-up animation-delay-300">
+              <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#00A8E8] mb-4 sm:mb-8">
                 Principales
               </h3>
-              <p className="text-xl text-gray-600 animate-fade-in-up animation-delay-500 hover:text-gray-800 transition-colors">
+              <p className="text-base sm:text-lg lg:text-xl text-gray-600 hover:text-gray-800 transition-colors">
                 Descubre cómo ParkingEyes revoluciona la gestión de 
                 estacionamientos con tecnología de vanguardia
               </p>
             </div>
           </div>
           
-          {/* Cards con animaciones mejoradas */}
-          <div className="w-full flex justify-center -mt-16">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 max-w-6xl">
-              {/* Cada FeatureCard con animación de entrada y hover */}
+          {/* Feature Cards */}
+          <div className="w-full flex justify-center -mt-8 sm:-mt-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-16 max-w-6xl px-4">
               <div className="animate-fade-in-up animation-delay-700 hover:transform hover:scale-105 transition-all duration-300">
                 <FeatureCard 
-                  icon={<Eye className="w-16 h-16 text-[#00A8E8] animate-pulse" />}
+                  icon={<Eye className="w-12 sm:w-16 h-12 sm:h-16 text-[#00A8E8] animate-pulse" />}
                   title="Monitoreo en Tiempo Real"
                   description="Visualización instantánea del estado de todos los espacios."
                   features={[
@@ -431,7 +413,7 @@ const LandingPage: React.FC = () => {
               </div>
               <div className="animate-fade-in-up animation-delay-800 hover:transform hover:scale-105 transition-all duration-300">
                 <FeatureCard 
-                  icon={<Brain className="w-16 h-16 text-[#00A8E8] animate-pulse" />}
+                  icon={<Brain className="w-12 sm:w-16 h-12 sm:h-16 text-[#00A8E8] animate-pulse" />}
                   title="IA Avanzada"
                   description="Sistema de inteligencia artificial que aprende y mejora continuamente."
                   features={[
@@ -444,11 +426,10 @@ const LandingPage: React.FC = () => {
               </div>
               <div className="animate-fade-in-up animation-delay-900 hover:transform hover:scale-105 transition-all duration-300">
                 <FeatureCard 
-                  icon={<Shield className="w-16 h-16 text-[#00A8E8] animate-pulse" />}
+                  icon={<Shield className="w-12 sm:w-16 h-12 sm:h-16 text-[#00A8E8] animate-pulse" />}
                   title="Seguridad Mejorada"
                   description="Sistema integral de seguridad para proteger vehículos y usuarios."
-                  features={[
-                    "Vigilancia 24/7",
+                  features={["Vigilancia 24/7",
                     "Alertas de seguridad",
                     "Registro de incidentes",
                     "Monitoreo continuo"
@@ -460,44 +441,41 @@ const LandingPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Beneficios */}
-      <section id="beneficios" className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white py-32">
+      {/* Benefits Section */}
+      <section id="beneficios" className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white py-16 sm:py-32">
         <div className="container mx-auto px-4 flex flex-col items-center justify-center">
-          {/* Título y subtítulo con animación suave */}
-          <div className="text-center w-full max-w-4xl mx-auto mb-20">
+          <div className="text-center w-full max-w-4xl mx-auto mb-12 sm:mb-20">
             <div className="overflow-hidden">
-              <h2 className="text-6xl font-bold mb-6 transform transition-all duration-1000 ease-out opacity-0 translate-y-8 animate-title">
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
                 <span className="text-white">Beneficios</span>{" "}
                 <span className="text-[#00A8E8]">Excepcionales</span>
               </h2>
             </div>
             <div className="overflow-hidden flex flex-col items-center">
-              <p className="text-2xl text-gray-300 transform transition-all duration-1000 delay-300 ease-out opacity-0 translate-y-8 animate-subtitle max-w-2xl">
+              <p className="text-xl sm:text-2xl text-gray-300 max-w-2xl">
                 Optimiza tu estacionamiento con nuestra solución integral
               </p>
-              {/* Texto adicional para captar atención */}
-              <p className="text-lg text-gray-400 mt-6 max-w-3xl leading-relaxed animate-fade-in animation-delay-500">
-                Descubre cómo nuestro sistema inteligente puede transformar la gestión de tu estacionamiento, 
-                mejorando la eficiencia y la experiencia de tus usuarios.
+              <p className="text-base sm:text-lg text-gray-400 mt-4 sm:mt-6 max-w-3xl leading-relaxed">
+                Descubre cómo nuestro sistema inteligente puede transformar la gestión de tu estacionamiento
               </p>
             </div>
           </div>
 
-          {/* Cards con mejor diseño y más simétricas */}
+          {/* Benefit Cards */}
           <div className="w-full max-w-6xl -mt-4">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-10 px-4">
               {/* Card 1 */}
               <div className="opacity-0 animate-slide-up animation-delay-300 h-full">
-                <div className="bg-gray-800/50 p-10 rounded-xl backdrop-blur-sm transform hover:scale-105 hover:bg-gray-800/70 transition-all duration-500 border border-gray-700/30 hover:border-[#00A8E8]/30 shadow-lg hover:shadow-[#00A8E8]/10 h-full flex flex-col justify-between">
+                <div className="bg-gray-800/50 p-6 sm:p-10 rounded-xl backdrop-blur-sm transform hover:scale-105 hover:bg-gray-800/70 transition-all duration-500 border border-gray-700/30 hover:border-[#00A8E8]/30 shadow-lg hover:shadow-[#00A8E8]/10 h-full flex flex-col justify-between">
                   <div>
-                    <div className="w-16 h-16 mx-auto mb-8 relative">
+                    <div className="w-12 sm:w-16 h-12 sm:h-16 mx-auto mb-6 sm:mb-8 relative">
                       <div className="absolute inset-0 bg-[#00A8E8]/20 rounded-full animate-pulse"></div>
-                      <ChartBar className="w-16 h-16 text-[#00A8E8] relative z-10 animate-float" />
+                      <ChartBar className="w-full h-full text-[#00A8E8] relative z-10 animate-float" />
                     </div>
-                    <h3 className="text-2xl font-bold text-center mb-4 text-white/90 tracking-wide">
+                    <h3 className="text-xl sm:text-2xl font-bold text-center mb-4 text-white/90 tracking-wide">
                       Optimización de Espacios
                     </h3>
-                    <p className="text-gray-300 text-center text-lg leading-relaxed">
+                    <p className="text-base sm:text-lg text-gray-300 text-center leading-relaxed">
                       Maximiza la utilización de tu estacionamiento con datos precisos
                     </p>
                   </div>
@@ -511,16 +489,16 @@ const LandingPage: React.FC = () => {
 
               {/* Card 2 */}
               <div className="opacity-0 animate-slide-up animation-delay-500 h-full">
-                <div className="bg-gray-800/50 p-10 rounded-xl backdrop-blur-sm transform hover:scale-105 hover:bg-gray-800/70 transition-all duration-500 border border-gray-700/30 hover:border-[#00A8E8]/30 shadow-lg hover:shadow-[#00A8E8]/10 h-full flex flex-col justify-between">
+                <div className="bg-gray-800/50 p-6 sm:p-10 rounded-xl backdrop-blur-sm transform hover:scale-105 hover:bg-gray-800/70 transition-all duration-500 border border-gray-700/30 hover:border-[#00A8E8]/30 shadow-lg hover:shadow-[#00A8E8]/10 h-full flex flex-col justify-between">
                   <div>
-                    <div className="w-16 h-16 mx-auto mb-8 relative">
+                    <div className="w-12 sm:w-16 h-12 sm:h-16 mx-auto mb-6 sm:mb-8 relative">
                       <div className="absolute inset-0 bg-[#00A8E8]/20 rounded-full animate-pulse"></div>
-                      <Clock className="w-16 h-16 text-[#00A8E8] relative z-10 animate-float animation-delay-150" />
+                      <Clock className="w-full h-full text-[#00A8E8] relative z-10 animate-float animation-delay-150" />
                     </div>
-                    <h3 className="text-2xl font-bold text-center mb-4 text-white/90 tracking-wide">
+                    <h3 className="text-xl sm:text-2xl font-bold text-center mb-4 text-white/90 tracking-wide">
                       Ahorro de Tiempo
                     </h3>
-                    <p className="text-gray-300 text-center text-lg leading-relaxed">
+                    <p className="text-base sm:text-lg text-gray-300 text-center leading-relaxed">
                       Reduce el tiempo de búsqueda de espacios disponibles
                     </p>
                   </div>
@@ -534,16 +512,16 @@ const LandingPage: React.FC = () => {
 
               {/* Card 3 */}
               <div className="opacity-0 animate-slide-up animation-delay-700 h-full">
-                <div className="bg-gray-800/50 p-10 rounded-xl backdrop-blur-sm transform hover:scale-105 hover:bg-gray-800/70 transition-all duration-500 border border-gray-700/30 hover:border-[#00A8E8]/30 shadow-lg hover:shadow-[#00A8E8]/10 h-full flex flex-col justify-between">
+                <div className="bg-gray-800/50 p-6 sm:p-10 rounded-xl backdrop-blur-sm transform hover:scale-105 hover:bg-gray-800/70 transition-all duration-500 border border-gray-700/30 hover:border-[#00A8E8]/30 shadow-lg hover:shadow-[#00A8E8]/10 h-full flex flex-col justify-between">
                   <div>
-                    <div className="w-16 h-16 mx-auto mb-8 relative">
+                    <div className="w-12 sm:w-16 h-12 sm:h-16 mx-auto mb-6 sm:mb-8 relative">
                       <div className="absolute inset-0 bg-[#00A8E8]/20 rounded-full animate-pulse"></div>
-                      <Car className="w-16 h-16 text-[#00A8E8] relative z-10 animate-float animation-delay-300" />
+                      <Car className="w-full h-full text-[#00A8E8] relative z-10 animate-float animation-delay-300" />
                     </div>
-                    <h3 className="text-2xl font-bold text-center mb-4 text-white/90 tracking-wide">
+                    <h3 className="text-xl sm:text-2xl font-bold text-center mb-4 text-white/90 tracking-wide">
                       Gestión Eficiente
                     </h3>
-                    <p className="text-gray-300 text-center text-lg leading-relaxed">
+                    <p className="text-base sm:text-lg text-gray-300 text-center leading-relaxed">
                       Control total sobre la operación de tu estacionamiento
                     </p>
                   </div>
@@ -559,13 +537,11 @@ const LandingPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Sección de Estadísticas */}
-      <section className="py-24 bg-[#0A192F] relative overflow-hidden">
-        {/* Fondo con patrón sutil */}
+      {/* Stats Section */}
+      <section className="py-16 sm:py-24 bg-[#0A192F] relative overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-
-        <div className="container mx-auto max-w-7xl px-8 relative z-10">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="container mx-auto max-w-7xl px-4 sm:px-8 relative z-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {[
               {
                 icon: <Target className="w-full h-full" />,
@@ -597,29 +573,22 @@ const LandingPage: React.FC = () => {
               }
             ].map((stat, index) => (
               <div key={index} className="h-full">
-                <div 
-                  className="stat-card bg-gradient-to-br from-gray-800/90 to-gray-900/90 p-8 rounded-xl border border-gray-700/50 shadow-lg h-full group
-                           hover:border-[#00A8E8]/50 hover:shadow-[#00A8E8]/20 transition-all duration-500
-                           focus-within:border-[#00A8E8] focus-within:shadow-[#00A8E8]/30"
-                  tabIndex={0}
-                >
+                <div className="stat-card bg-gradient-to-br from-gray-800/90 to-gray-900/90 p-6 sm:p-8 rounded-xl border border-gray-700/50 shadow-lg h-full group hover:border-[#00A8E8]/50 hover:shadow-[#00A8E8]/20 transition-all duration-500 focus-within:border-[#00A8E8] focus-within:shadow-[#00A8E8]/30">
                   <div className="flex flex-col items-center justify-between h-full">
-                    {/* Contenedor del icono con nueva animación */}
-                    <div className="relative w-16 h-16 mb-6">
+                    <div className="relative w-12 sm:w-16 h-12 sm:h-16 mb-6">
                       <div className={`absolute inset-0 bg-[#00A8E8]/20 rounded-full ${stat.animation}`}></div>
                       <div className="relative z-10 w-full h-full text-[#00A8E8] transform transition-transform duration-500 group-hover:scale-110">
                         {stat.icon}
                       </div>
                     </div>
-                    
                     <div className="text-center">
-                      <h3 className="text-4xl font-bold text-white mb-3 group-hover:text-[#00A8E8] transition-colors">
+                      <h3 className="text-3xl sm:text-4xl font-bold text-white mb-3 group-hover:text-[#00A8E8] transition-colors">
                         {stat.number}
                       </h3>
-                      <p className="text-lg font-medium text-[#00A8E8] mb-2">
+                      <p className="text-base sm:text-lg font-medium text-[#00A8E8] mb-2">
                         {stat.title}
                       </p>
-                      <p className="text-gray-400 text-sm leading-relaxed">
+                      <p className="text-sm text-gray-400 leading-relaxed">
                         {stat.description}
                       </p>
                     </div>
@@ -631,21 +600,18 @@ const LandingPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Agregar la nueva sección de tecnología antes del footer */}
       <TechnologySection />
 
-      {/* Footer minimalista y compacto */}
-      <footer className="bg-gray-900 text-white py-3"> {/* Reducido el padding vertical */}
-        <div className="max-w-[1000px] mx-auto"> {/* Ancho máximo controlado */}
-          <div className="flex items-center justify-between px-4">
-            {/* Copyright y nombre */}
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-4 sm:py-3">
+        <div className="max-w-[1000px] mx-auto">
+          <div className="flex flex-col sm:flex-row items-center justify-between px-4 gap-4 sm:gap-0">
             <div className="flex items-center gap-2">
               <span className="text-[11px] text-gray-400 tracking-wider">© 2025</span>
               <span className="text-[11px] font-medium text-white tracking-wider">ParkingEyes</span>
             </div>
 
-            {/* Links */}
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-4 sm:gap-6">
               <a href="#" className="text-[11px] text-gray-400 hover:text-[#00A8E8] transition-colors tracking-wider">
                 Monitoreo
               </a>
@@ -657,8 +623,7 @@ const LandingPage: React.FC = () => {
               </a>
             </div>
 
-            {/* Créditos */}
-            <div className="text-[10px] text-gray-400 tracking-wider">
+            <div className="text-[10px] text-gray-400 tracking-wider text-center sm:text-left">
               Desarrollado con ❤️ por el equipo de ParkingEyes
             </div>
           </div>
@@ -666,6 +631,7 @@ const LandingPage: React.FC = () => {
       </footer>
     </div>
   );
-};
+}
+
 
 export default LandingPage; 
