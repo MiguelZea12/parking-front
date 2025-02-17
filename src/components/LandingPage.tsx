@@ -60,14 +60,14 @@ const StatBox: React.FC<{ endValue: number; suffix?: string; label: string }> = 
 // Agregar la sección de tecnología donde usaremos el componente
 const TechnologySection: React.FC = () => (
   <section id="technology-section" className="py-32 bg-white relative overflow-hidden">
-    <div className="container mx-auto max-w-7xl px-8">
+    <div className=" mx-auto max-w-7xl px-8">
       <div className="flex flex-col lg:flex-row gap-20">
         {/* Columna izquierda */}
         <div className="lg:w-2/5">
           <div className="sticky top-8">
             {/* Título más compacto */}
             <div className="mb-6"> {/* Reducido de mb-12 a mb-6 */}
-              <h2 className="text-7xl font-bold leading-tight"> {/* Añadido leading-tight */}
+              <h2 className="text-5xl font-bold leading-tight"> {/* Añadido leading-tight */}
                 <span className="block text-gray-900 mb-2"> {/* Reducido de mb-4 a mb-2 */}
                   Tecnología
                 </span>
@@ -318,7 +318,7 @@ const LandingPage: React.FC = () => {
       <Navbar />
       
       <section id="inicio" className="min-h-screen hero-section overflow-hidden bg-gray-900">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-12 py-12 sm:py-24 lg:py-32">
+        <div className="mx-auto px-4 sm:px-6 lg:px-12 py-12 sm:py-24 lg:py-32">
           <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-8 lg:gap-16">
             {/* Hero Content */}
             <div className="lg:w-1/2 space-y-6 lg:space-y-8 z-10 text-center lg:text-left">
@@ -347,7 +347,7 @@ const LandingPage: React.FC = () => {
               </div>
             </div>
 
-            {/* Right Container */}
+            {/* Right  */}
             <div className="lg:w-1/2 flex flex-col space-y-8 mt-8 lg:mt-0">
               {/* Hero Image */}
               <div className="relative px-4 sm:px-0">
@@ -443,7 +443,7 @@ const LandingPage: React.FC = () => {
 
       {/* Benefits Section */}
       <section id="beneficios" className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white py-16 sm:py-32">
-        <div className="container mx-auto px-4 flex flex-col items-center justify-center">
+        <div className=" mx-auto px-4 flex flex-col items-center justify-center">
           <div className="text-center w-full max-w-4xl mx-auto mb-12 sm:mb-20">
             <div className="overflow-hidden">
               <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
@@ -540,7 +540,7 @@ const LandingPage: React.FC = () => {
       {/* Stats Section */}
       <section className="py-16 sm:py-24 bg-[#0A192F] relative overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-        <div className="container mx-auto max-w-7xl px-4 sm:px-8 relative z-10">
+        <div className=" mx-auto max-w-7xl px-4 sm:px-8 relative z-10">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {[
               {

@@ -106,42 +106,42 @@ const Login: React.FC = () => {
             </form>
           </div>
 
-{/* Promo Side - Mejorado con Lucide-React */}
-<div className="hidden sm:flex flex-1 bg-gradient-to-br from-black to-[#00A8E8] p-10 flex-col justify-center text-white relative">
-  {/* Efecto de fondo */}
-  <div className="absolute inset-0 bg-black/40 rounded-3xl"></div>
-  
-  <div className="relative z-10">
-    <h1 className="text-4xl font-extrabold mb-6 leading-tight text-white animate-fade-in">
-      Optimiza Tu <span className="text-[#00A8E8]">Estacionamiento</span>
-    </h1>
-    
-    <p className="text-lg leading-relaxed mb-4 opacity-90">
-      Sistema inteligente de monitoreo con visión computarizada para detectar espacios disponibles y ocupados en tiempo real.
-    </p>
+          {/* Promo Side - Mejorado con Lucide-React */}
+          <div className="hidden sm:flex flex-1 bg-gradient-to-br from-black to-[#00A8E8] p-10 flex-col justify-center text-white relative">
+            {/* Efecto de fondo */}
+            <div className="absolute inset-0 bg-black/40 rounded-3xl"></div>
+            
+            <div className="relative z-10">
+              <h1 className="text-4xl font-extrabold mb-6 leading-tight text-white animate-fade-in">
+                Optimiza Tu <span className="text-[#00A8E8]">Estacionamiento</span>
+              </h1>
+              
+              <p className="text-lg leading-relaxed mb-4 opacity-90">
+                Sistema inteligente de monitoreo con visión computarizada para detectar espacios disponibles y ocupados en tiempo real.
+              </p>
 
-    {/* Beneficios con iconos de Lucide-React */}
-    <ul className="space-y-4 text-lg opacity-90">
-      <li className="flex items-center">
-        <Car className="w-6 h-6 mr-3 text-[#00A8E8]" />
-        Detección automática de espacios
-      </li>
-      <li className="flex items-center">
-        <Bell className="w-6 h-6 mr-3 text-[#00A8E8]" />
-        Notificaciones en tiempo real
-      </li>
-      <li className="flex items-center">
-        <BarChart className="w-6 h-6 mr-3 text-[#00A8E8]" />
-        Reportes detallados
-      </li>
-    </ul>
+              {/* Beneficios con iconos de Lucide-React */}
+              <ul className="space-y-4 text-lg opacity-90">
+                <li className="flex items-center">
+                  <Car className="w-6 h-6 mr-3 text-[#00A8E8]" />
+                  Detección automática de espacios
+                </li>
+                <li className="flex items-center">
+                  <Bell className="w-6 h-6 mr-3 text-[#00A8E8]" />
+                  Notificaciones en tiempo real
+                </li>
+                <li className="flex items-center">
+                  <BarChart className="w-6 h-6 mr-3 text-[#00A8E8]" />
+                  Reportes detallados
+                </li>
+              </ul>
 
-    {/* Botón CTA */}
-    <a href="/info" className="mt-6 inline-block bg-[#00A8E8] text-black font-semibold py-3 px-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:bg-white">
-      Más información
-    </a>
-  </div>
-</div>
+              {/* Botón CTA */}
+              <a href="/" className="mt-6 inline-block bg-[#00A8E8] text-black font-semibold py-3 px-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:bg-white">
+                Más información
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
