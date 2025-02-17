@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Eye, Car, Brain, Shield, ChartBar, Clock, Target, BarChart2 } from 'lucide-react';
 import parkinpage from '../assets/img/parkinpage.png';
+import parkingdown from '../assets/img/ParkingDown.png';
 import Navbar from './Navbar';
 import { useInView } from 'react-intersection-observer';
 import CountUp from 'react-countup';
@@ -92,7 +93,7 @@ const TechnologySection: React.FC = () => (
               <div className="relative transform transition-all duration-700 
                             group-hover:rotate-y-12 group-hover:scale-105">
                 <img 
-                  src="/src/assets/img/ParkingDown.png"
+                  src={parkingdown}
                   alt="Tecnología ParkingEyes"
                   className="w-full h-auto rounded-3xl shadow-2xl"
                 />
