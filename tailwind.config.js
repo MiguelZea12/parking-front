@@ -1,8 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
     "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
+    "./styles/**/*.css"
   ],
   darkMode: 'class',
   theme: {
@@ -12,6 +13,8 @@ module.exports = {
           blue: '#00A8E8',
           black: '#000000',
         },
+        'primary': '#00A8E8',
+        'primary-dark': '#0077A3',
         dark: {
           'bg-primary': '#0F172A',    // Fondo principal oscuro
           'bg-secondary': '#1E293B',  // Fondo secundario para tarjetas
