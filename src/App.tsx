@@ -8,6 +8,10 @@ import MapaPage from './pages/mapa/MapaPage';
 import Users from './pages/database/Users';
 import ConfiguracionPage from './pages/configuracion/ConfiguracionPage';
 import Login from './pages/auth/Login';
+import UserProfile from './pages/configuracion/DataUser';
+import EnhancedStatistics from './pages/estadistic/Estadistic';
+import StatisticsHistory from './pages/estadistic/Historial';
+import StatisticsReports from './pages/estadistic/ReportesEstadisticas';
 import { isAuthenticated } from './services/authService';
 import { useIsMobile } from './hooks/useIsMobile';
 import { ThemeProvider } from './contexts/ThemeContext';
@@ -57,9 +61,13 @@ const App: React.FC = () => {
             <Route path="/" element={<Login />} />
             <Route path="/home" element={isAuthenticated() ? <Home /> : <Navigate to="/" />} />
             <Route path="/estadisticas" element={isAuthenticated() ? <Estadistic /> : <Navigate to="/" />} />
+            <Route path="/estadisticas/graficos" element={isAuthenticated() ? <EnhancedStatistics /> : <Navigate to="/" />} />
+            <Route path="/estadisticas/Historial" element={isAuthenticated() ? <StatisticsHistory /> : <Navigate to="/" />} />
+            <Route path="/estadisticas/Reportes" element={isAuthenticated() ? <StatisticsReports /> : <Navigate to="/" />} />
             <Route path="/mapa" element={isAuthenticated() ? <MapaPage /> : <Navigate to="/" />} />
             <Route path="/database/usuarios" element={isAuthenticated() ? <Users /> : <Navigate to="/" />} />
             <Route path="/configuracion" element={isAuthenticated() ? <ConfiguracionPage /> : <Navigate to="/" />} />
+            <Route path="/configuracion/usuario" element={isAuthenticated() ? <UserProfile /> : <Navigate to="/" />} />
           </Routes>
         </Layout>
       </Router>

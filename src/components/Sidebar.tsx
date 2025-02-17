@@ -49,7 +49,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
     
     {
       icon: <Settings size={20} />,
-      text: 'Configuración',
+      text: 'Administracion',
       path: '/configuracion',
       subModules: [
         { text: 'Usuario', path: '/configuracion/usuario' },

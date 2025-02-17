@@ -54,7 +54,7 @@ const Home: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-dark-bg-primary py-6 transition-colors duration-200 p-6 py-16">
+    <div className="min-h-screen bg-gray-50 dark:bg-dark-bg-primary py-14 p-8 transition-colors duration-200">
       <div className="max-w-[1400px] mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           {/* Main Content Area - Video and Map */}

@@ -79,3 +79,19 @@ export interface Usuario {
     
     return response.json();
   };
+
+  export const getUsuarioActual = async () => {
+    const token = localStorage.getItem('token');
+    const response = await fetch(`${API_URL}/usuario/actual`, {
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+    });
+  
+    if (!response.ok) {
+      throw new Error('Error al obtener datos del usuario autenticado');
+    }
+  
+    return response.json();
+  };

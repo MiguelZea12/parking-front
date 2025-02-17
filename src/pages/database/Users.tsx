@@ -89,7 +89,7 @@ const Users: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-dark-bg-primary py-6 transition-colors duration-200 p-8 py-16">
+    <div className="min-h-screen bg-gray-50 dark:bg-dark-bg-primary py-14 transition-colors duration-200 p-8 ">
       <div className="mb-6 flex justify-between items-center">
         <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
           Gestión de Usuarios
