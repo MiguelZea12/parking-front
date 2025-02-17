@@ -56,31 +56,23 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 const App: React.FC = () => {
   return (
     <ThemeProvider>
+
       <Router>
-        <Routes>
-          {/* Ruta principal para el LandingPage */}
-          <Route path="/" element={<LandingPage />} />
-          
-          {/* Ruta de login */}
-          <Route path="/login" element={<Login />} />
-          
-          {/* Rutas protegidas dentro del Layout */}
-          <Route path="/dashboard" element={
-            <Layout>
-              <Routes>
-                <Route path="/home" element={isAuthenticated() ? <Home /> : <Navigate to="/login" />} />
-                <Route path="/estadisticas" element={isAuthenticated() ? <Estadistic /> : <Navigate to="/login" />} />
-                <Route path="/estadisticas/graficos" element={isAuthenticated() ? <EnhancedStatistics /> : <Navigate to="/" />} />
-                <Route path="/estadisticas/Historial" element={isAuthenticated() ? <StatisticsHistory /> : <Navigate to="/" />} />
-                <Route path="/estadisticas/Reportes" element={isAuthenticated() ? <StatisticsReports /> : <Navigate to="/" />} />
-                <Route path="/mapa" element={isAuthenticated() ? <MapaPage /> : <Navigate to="/login" />} />
-                <Route path="/database/usuarios" element={isAuthenticated() ? <Users /> : <Navigate to="/login" />} />
-                <Route path="/configuracion" element={isAuthenticated() ? <ConfiguracionPage /> : <Navigate to="/login" />} />
-                <Route path="/configuracion/usuario" element={isAuthenticated() ? <UserProfile /> : <Navigate to="/" />} />
+        <Layout>
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/home" element={isAuthenticated() ? <Home /> : <Navigate to="/login" />} />
+            <Route path="/estadisticas" element={isAuthenticated() ? <Estadistic /> : <Navigate to="/login" />} />
+            <Route path="/estadisticas/graficos" element={isAuthenticated() ? <EnhancedStatistics /> : <Navigate to="/login" />} />
+            <Route path="/estadisticas/Historial" element={isAuthenticated() ? <StatisticsHistory /> : <Navigate to="/login" />} />
+            <Route path="/estadisticas/Reportes" element={isAuthenticated() ? <StatisticsReports /> : <Navigate to="/login" />} />
+            <Route path="/mapa" element={isAuthenticated() ? <MapaPage /> : <Navigate to="/login" />} />
+            <Route path="/database/usuarios" element={isAuthenticated() ? <Users /> : <Navigate to="/login" />} />
+            <Route path="/configuracion" element={isAuthenticated() ? <ConfiguracionPage /> : <Navigate to="/login" />} />
+            <Route path="/configuracion/usuario" element={isAuthenticated() ? <UserProfile /> : <Navigate to="/login" />} />
           </Routes>
-            </Layout>
-          } />
-        </Routes>
+        </Layout>
       </Router>
     </ThemeProvider>
   );

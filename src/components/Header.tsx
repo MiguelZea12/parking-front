@@ -29,7 +29,7 @@ const Header: React.FC<HeaderProps> = ({ isOpen, onToggle }) => {
 
   const handleLogout = async () => {
     await logout();
-    navigate('/');
+    navigate('/login');
   };
 
   return (
