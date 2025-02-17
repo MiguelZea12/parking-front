@@ -12,6 +12,7 @@ import UserProfile from './pages/configuracion/DataUser';
 import EnhancedStatistics from './pages/estadistic/Estadistic';
 import StatisticsHistory from './pages/estadistic/Historial';
 import StatisticsReports from './pages/estadistic/ReportesEstadisticas';
+import Placas from './pages/database/Placa';
 import { isAuthenticated } from './services/authService';
 import { useIsMobile } from './hooks/useIsMobile';
 import { ThemeProvider } from './contexts/ThemeContext';
@@ -69,6 +70,7 @@ const App: React.FC = () => {
             <Route path="/estadisticas/Reportes" element={isAuthenticated() ? <StatisticsReports /> : <Navigate to="/login" />} />
             <Route path="/mapa" element={isAuthenticated() ? <MapaPage /> : <Navigate to="/login" />} />
             <Route path="/database/usuarios" element={isAuthenticated() ? <Users /> : <Navigate to="/login" />} />
+            <Route path="/database/placas" element={isAuthenticated() ? <Placas /> : <Navigate to="/login" />} />
             <Route path="/configuracion" element={isAuthenticated() ? <ConfiguracionPage /> : <Navigate to="/login" />} />
             <Route path="/configuracion/usuario" element={isAuthenticated() ? <UserProfile /> : <Navigate to="/login" />} />
           </Routes>
