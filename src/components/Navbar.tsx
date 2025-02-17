@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { Menu, X, Eye } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
 
-const Navbar = () => {
+const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
@@ -15,63 +15,122 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const offset = 100; // Ajustado para mejor posicionamiento
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+    setIsMobileMenuOpen(false);
+  };
+
+  const navItems = [
+    { 
+      name: 'Inicio', 
+      id: 'revolucion-estacionamiento'
+    },
+    { 
+      name: 'Características', 
+      id: 'caracteristicas'
+    },
+    { 
+      name: 'Beneficios', 
+      id: 'beneficios'
+    },
+    { 
+      name: 'Tecnología', 
+      id: 'technology-section'
+    }
+  ];
+
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white shadow-lg' : 'bg-transparent'
+      isScrolled 
+        ? 'bg-white py-5 shadow-md' 
+        : 'bg-transparent py-6'
     }`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+      <div className="max-w-7xl mx-auto px-8">
+        <div className="flex items-center justify-between h-8">
           {/* Logo */}
-          <div className="flex-shrink-0">
-            <h1 className={`text-2xl font-bold ${
-              isScrolled ? 'text-parking-blue' : 'text-white'
+          <div className="flex items-center cursor-pointer" onClick={() => scrollToSection('hero')}>
+            <span className={`text-xl font-bold tracking-wide transition-colors duration-300 flex items-center ${
+              isScrolled ? 'text-gray-900' : 'text-white'
             }`}>
-              ParkingEyes
-            </h1>
+              Parking
+              {isScrolled ? (
+                <Eye className="w-7 h-7 text-[#00A8E8] ml-0.5 -mt-0.6 animate-pulse" />
+              ) : (
+                <span className="text-white ml-0.5">Eyes</span>
+              )}
+            </span>
           </div>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
-              <NavLink isScrolled={isScrolled} href="#inicio">Inicio</NavLink>
-              <NavLink isScrolled={isScrolled} href="#caracteristicas">Características</NavLink>
-              <NavLink isScrolled={isScrolled} href="#beneficios">Beneficios</NavLink>
-              <NavLink isScrolled={isScrolled} href="#nosotros">Nosotros</NavLink>
+          {/* Links de navegación */}
+          <div className="hidden md:flex items-center space-x-10">
+            {navItems.map((item) => (
               <button
-                onClick={() => navigate('/login')}
-                className="px-4 py-2 rounded-full bg-parking-blue text-white hover:bg-blue-600 transition-all transform hover:scale-105"
+                key={item.name}
+                onClick={() => scrollToSection(item.id)}
+                className={`text-[13px] font-semibold transition-all duration-300 hover:scale-105 ${
+                  isScrolled 
+                    ? 'text-gray-800 hover:text-[#00A8E8]' // Texto más oscuro y grueso
+                    : 'text-white hover:text-white font-medium'
+                }`}
               >
-                Iniciar Sesión
+                {item.name}
               </button>
-            </div>
+            ))}
+
+            {/* Botón de inicio de sesión */}
+            <button
+              onClick={() => navigate('/login')}
+              className={`px-5 py-1.5 text-[13px] font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 ${
+                isScrolled
+                  ? 'bg-[#00A8E8] text-white hover:bg-[#0077A3] shadow-sm hover:shadow-md'
+                  : 'bg-white/10 text-white backdrop-blur-sm hover:bg-white/20 border border-white/30'
+              }`}
+            >
+              Iniciar Sesión
+            </button>
           </div>
 
-          {/* Mobile menu button */}
+          {/* Menú móvil */}
           <div className="md:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`p-2 rounded-md ${
-                isScrolled ? 'text-parking-blue' : 'text-white'
+              className={`p-1.5 rounded-md transition-colors duration-300 ${
+                isScrolled ? 'text-gray-600 hover:text-[#00A8E8]' : 'text-white hover:text-gray-200'
               }`}
             >
-              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Menú móvil desplegable actualizado */}
       <div className={`md:hidden transition-all duration-300 ease-in-out ${
         isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
       } overflow-hidden bg-white shadow-lg`}>
-        <div className="px-2 pt-2 pb-3 space-y-1">
-          <MobileNavLink href="#inicio">Inicio</MobileNavLink>
-          <MobileNavLink href="#caracteristicas">Características</MobileNavLink>
-          <MobileNavLink href="#beneficios">Beneficios</MobileNavLink>
-          <MobileNavLink href="#nosotros">Nosotros</MobileNavLink>
-          <button
+        <div className="px-4 py-3 space-y-2">
+          {navItems.map((item) => (
+            <button
+              key={item.name}
+              onClick={() => scrollToSection(item.id)}
+              className="block w-full text-left px-3 py-2 text-[13px] font-semibold text-gray-800 hover:text-[#00A8E8] hover:bg-gray-50 rounded-md"
+            >
+              {item.name}
+            </button>
+          ))}
+          <button 
             onClick={() => navigate('/login')}
-            className="w-full text-left block px-3 py-2 text-base font-medium text-parking-blue hover:bg-gray-100 rounded-md"
+            className="w-full mt-2 px-3 py-2 text-[13px] font-semibold text-white bg-[#00A8E8] hover:bg-[#0077A3] rounded-md transition-colors duration-300"
           >
             Iniciar Sesión
           </button>
@@ -80,27 +139,5 @@ const Navbar = () => {
     </nav>
   );
 };
-
-const NavLink = ({ isScrolled, href, children }: { isScrolled: boolean; href: string; children: React.ReactNode }) => (
-  <a
-    href={href}
-    className={`px-3 py-2 rounded-md text-sm font-medium transition-all ${
-      isScrolled 
-        ? 'text-gray-700 hover:text-parking-blue' 
-        : 'text-white hover:text-parking-blue'
-    }`}
-  >
-    {children}
-  </a>
-);
-
-const MobileNavLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
-  <a
-    href={href}
-    className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-parking-blue hover:bg-gray-100"
-  >
-    {children}
-  </a>
-);
 
 export default Navbar; 

@@ -59,7 +59,7 @@ const StatBox: React.FC<{ endValue: number; suffix?: string; label: string }> = 
 
 // Agregar la sección de tecnología donde usaremos el componente
 const TechnologySection: React.FC = () => (
-  <section className="py-32 bg-white relative overflow-hidden">
+  <section id="technology-section" className="py-32 bg-white relative overflow-hidden">
     <div className="container mx-auto max-w-7xl px-8">
       <div className="flex flex-col lg:flex-row gap-20">
         {/* Columna izquierda */}
@@ -317,7 +317,7 @@ const LandingPage: React.FC = () => {
     <div className="bg-white">
       <Navbar />
       
-      <section id="inicio" className="min-h-screen hero-section overflow-hidden">
+      <section id="revolucion-estacionamiento" className="min-h-screen hero-section overflow-hidden">
         <div className="container full-screen mx-auto px-6 lg:px-12 py-24 lg:py-32">
           <div className="flex flex-col lg:flex-row items-start justify-between gap-16">
             {/* Contenido del Hero */}
