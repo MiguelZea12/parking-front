@@ -4,6 +4,7 @@ import parkinpage from '../assets/img/parkinpage.png';
 import parkingdown from '../assets/img/ParkingDown.png';
 import Navbar from './Navbar';
 import { useInView } from 'react-intersection-observer';
+import { useNavigate } from 'react-router-dom';
 import CountUp from 'react-countup';
 
 // Definir interfaces para los props de los componentes
@@ -16,6 +17,7 @@ interface FeatureCardProps {
 
 // Componentes auxiliares con tipos
 const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, description, features }) => (
+  
   <div className="feature-card" data-aos="fade-up">
     <div className="flex flex-col items-center text-center h-full">
       <div className="icon-wrapper">
@@ -197,6 +199,8 @@ const TechnologySection: React.FC = () => (
 );
 
 const LandingPage: React.FC = () => {
+
+  const navigate = useNavigate();
   useEffect(() => {
     // Animación suave al hacer clic en los enlaces del menú
     document.querySelectorAll('a[href^="#"]').forEach((anchor: Element) => {
@@ -339,10 +343,7 @@ const LandingPage: React.FC = () => {
               </div>
               
               <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 sm:gap-6 pt-4 lg:pt-8">
-                <button className="bg-[#00A8E8] text-white px-8 py-3 rounded-lg hover:bg-[#0096d1] transition-colors w-full sm:w-auto">
-                  Conoce Más
-                </button>
-                <button className="border-2 border-[#00A8E8] text-white px-8 py-3 rounded-lg hover:bg-[#00A8E8]/10 transition-colors w-full sm:w-auto">
+                <button onClick={() => navigate('/login')}className="border-2 border-[#00A8E8] text-white px-8 py-3 rounded-lg hover:bg-[#00A8E8]/10 transition-colors w-full sm:w-auto">
                   Ver Demo
                 </button>
               </div>

@@ -71,9 +71,9 @@ const App: React.FC = () => {
                 <Route path="/home" element={isAuthenticated() ? <Home /> : <Navigate to="/login" />} />
                 <Route path="/estadisticas" element={isAuthenticated() ? <Estadistic /> : <Navigate to="/login" />} />
                 <Route path="/estadisticas/graficos" element={isAuthenticated() ? <EnhancedStatistics /> : <Navigate to="/" />} />
-            <Route path="/estadisticas/Historial" element={isAuthenticated() ? <StatisticsHistory /> : <Navigate to="/" />} />
-            <Route path="/estadisticas/Reportes" element={isAuthenticated() ? <StatisticsReports /> : <Navigate to="/" />} />
-            <Route path="/mapa" element={isAuthenticated() ? <MapaPage /> : <Navigate to="/login" />} />
+                <Route path="/estadisticas/Historial" element={isAuthenticated() ? <StatisticsHistory /> : <Navigate to="/" />} />
+                <Route path="/estadisticas/Reportes" element={isAuthenticated() ? <StatisticsReports /> : <Navigate to="/" />} />
+                <Route path="/mapa" element={isAuthenticated() ? <MapaPage /> : <Navigate to="/login" />} />
                 <Route path="/database/usuarios" element={isAuthenticated() ? <Users /> : <Navigate to="/login" />} />
                 <Route path="/configuracion" element={isAuthenticated() ? <ConfiguracionPage /> : <Navigate to="/login" />} />
                 <Route path="/configuracion/usuario" element={isAuthenticated() ? <UserProfile /> : <Navigate to="/" />} />
