@@ -271,14 +271,13 @@ const LandingPage: React.FC = () => {
     <div className="bg-white">
       <Navbar />
       
-      {/* Hero Section */}
       <section id="inicio" className="min-h-screen hero-section overflow-hidden">
-        <div className="container mx-auto px-6 lg:px-12 py-24 lg:py-32">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-16">
+        <div className="container full-screen mx-auto px-6 lg:px-12 py-24 lg:py-32">
+          <div className="flex flex-col lg:flex-row items-start justify-between gap-16">
             {/* Contenido del Hero */}
             <div className="lg:w-1/2 space-y-8 z-10">
               <div className="space-y-4">
-                <h1 className="text-6xl lg:text-7xl font-bold leading-tight">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight py-10">
                   <span className="text-white block mb-2">ParkingEyes:</span>
                   <span className="text-white block mb-2">La Revolución</span>
                   <span className="text-white block mb-2">del</span>
@@ -288,7 +287,7 @@ const LandingPage: React.FC = () => {
                     Inteligente
                   </span>
                 </h1>
-                <p className="text-xl text-gray-100 leading-relaxed max-w-2xl mt-8">
+                <p className="text-lg sm:text-xl text-gray-100 leading-relaxed max-w-2xl mt-8">
                   Sistema de monitoreo inteligente con IA para optimizar y asegurar espacios de 
                   estacionamiento. Revoluciona la forma de gestionar tu estacionamiento.
                 </p>
@@ -302,34 +301,37 @@ const LandingPage: React.FC = () => {
                   Ver Demo
                 </button>
               </div>
+            </div>
 
-              {/* Estadísticas reposicionadas debajo de los botones */}
+            {/* Contenedor derecho con imagen y estadísticas */}
+            <div className="lg:w-1/2 flex flex-col space-y-8">
+              {/* Imagen del Hero */}
+              <div className="relative">
+                <div className="relative z-10 transform hover:scale-105 transition-duration-500">
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-[#00A8E8] to-blue-600 rounded-3xl blur opacity-30"></div>
+                  <img 
+                    src={parkinpage} 
+                    alt="AI Parking System" 
+                    className="relative rounded-3xl shadow-2xl w-full h-auto max-w-full mx-auto object-cover"
+                  />
+                  {/* Efectos de luz */}
+                  <div className="absolute -top-20 -right-20 w-72 h-72 bg-[#00A8E8] rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
+                  <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-blue-600 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+                </div>
+              </div>
+
+              {/* Estadísticas debajo de la imagen */}
               <div className="flex justify-center w-full mt-16">
-                <div className="grid grid-cols-3 gap-16 w-[600px]">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
                   <StatBox endValue={98} suffix="%" label="Precisión" />
                   <StatBox endValue={50} suffix="%" label="Ahorro de Tiempo" />
                   <StatBox endValue={24} suffix="/7" label="Monitoreo" />
                 </div>
               </div>
             </div>
-
-            {/* Imagen del Hero reposicionada */}
-            <div className="lg:w-1/2 relative -mt-80 lg:-mt-[32rem] lg:translate-x-20">
-              <div className="relative z-10 transform hover:scale-105 transition-duration-500">
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-[#00A8E8] to-blue-600 rounded-3xl blur opacity-30"></div>
-                <img 
-                  src={parkinpage} 
-                  alt="AI Parking System" 
-                  className="relative rounded-3xl shadow-2xl w-full h-auto max-w-2xl mx-auto object-cover"
-                />
-                {/* Efectos de luz ajustados */}
-                <div className="absolute -top-20 -right-20 w-72 h-72 bg-[#00A8E8] rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
-                <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-blue-600 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
-              </div>
-            </div>
           </div>
         </div>
-      </section>
+    </section>
 
       {/* Características Principales */}
       <section id="caracteristicas" className="py-24 bg-white">
