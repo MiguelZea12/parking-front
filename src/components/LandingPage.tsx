@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { Eye, Car, Brain, Shield, ChartBar, Clock, Target, BarChart2 } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
 import parkinpage from '../assets/img/parkinpage.png';
 import Navbar from './Navbar';
 import { useInView } from 'react-intersection-observer';
@@ -63,80 +62,129 @@ const TechnologySection: React.FC = () => (
   <section className="py-32 bg-white relative overflow-hidden">
     <div className="container mx-auto max-w-7xl px-8">
       <div className="flex flex-col lg:flex-row gap-20">
-        {/* Columna izquierda con título y texto */}
+        {/* Columna izquierda */}
         <div className="lg:w-2/5">
           <div className="sticky top-8">
-            <h2 className="text-6xl font-bold mb-6">
-              <span className="block text-gray-900">Tecnología de</span>
-              <span className="block text-[#00A8E8] mt-2">Vanguardia</span>
-            </h2>
-            <p className="text-xl text-gray-600 mt-4">
-              Utilizamos las últimas tecnologías para garantizar el mejor servicio
-            </p>
+            {/* Título más compacto */}
+            <div className="mb-6"> {/* Reducido de mb-12 a mb-6 */}
+              <h2 className="text-7xl font-bold leading-tight"> {/* Añadido leading-tight */}
+                <span className="block text-gray-900 mb-2"> {/* Reducido de mb-4 a mb-2 */}
+                  Tecnología
+                </span>
+                <span className="block text-gray-900 mb-2"> {/* Reducido de mb-4 a mb-2 */}
+                  de
+                </span>
+                <span className="block text-[#00A8E8]"> {/* Quitado leading-relaxed */}
+                  Vanguardia
+                </span>
+              </h2>
+            </div>
+            
+            {/* Subtítulo más cercano */}
+            <div className="overflow-hidden">
+              <p className="text-lg text-gray-600 mt-2 leading-relaxed"> {/* Reducido text-xl a text-lg y mt-4 a mt-2 */}
+                Utilizamos las últimas tecnologías para garantizar el mejor servicio
+              </p>
+            </div>
 
-            {/* Imagen grande mejorada */}
-            <div className="relative mt-12">
-              <img 
-                src="/src/assets/img/ParkingDown.png"
-                alt="Tecnología ParkingEyes"
-                className="w-full h-auto rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500"
-              />
-              {/* Efecto sutil de brillo */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#00A8E8]/5 to-transparent rounded-3xl"></div>
+            {/* Imagen con efectos mejorados */}
+            <div className="relative mt-16 group perspective-1000">
+              <div className="relative transform transition-all duration-700 
+                            group-hover:rotate-y-12 group-hover:scale-105">
+                <img 
+                  src="/src/assets/img/ParkingDown.png"
+                  alt="Tecnología ParkingEyes"
+                  className="w-full h-auto rounded-3xl shadow-2xl"
+                />
+                {/* Efecto de profundidad */}
+                <div className="absolute inset-0 rounded-3xl shadow-inner-lg opacity-0 
+                              group-hover:opacity-100 transition-opacity duration-700"></div>
+              </div>
+              {/* Destellos decorativos */}
+              <div className="absolute -top-10 -right-10 w-64 h-64 bg-gradient-to-br from-blue-200 to-transparent 
+                            rounded-full mix-blend-overlay filter blur-3xl opacity-0 group-hover:opacity-30 
+                            transition-all duration-700 transform group-hover:scale-110"></div>
             </div>
           </div>
         </div>
 
-        {/* Columna derecha con cards más pequeñas */}
+        {/* Cards con mejor separación del fondo */}
         <div className="lg:w-3/5">
-          <div className="flex flex-col space-y-6">
+          <div className="flex flex-col space-y-8">
             {/* IA Avanzada */}
-            <div className="group p-6 bg-white rounded-xl shadow-md hover:shadow-lg border border-gray-100 hover:border-[#00A8E8]/30 transition-all duration-300">
-              <div className="flex items-start gap-4">
-                <div className="relative">
-                  <Brain className="w-12 h-12 text-[#00A8E8] group-hover:scale-110 transition-transform" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-[#00A8E8] transition-colors">
-                    Inteligencia Artificial Avanzada
-                  </h3>
-                  <p className="text-gray-600 text-base leading-relaxed">
-                    Algoritmos de última generación para detección y análisis preciso de vehículos
-                  </p>
+            <div className="group">
+              <div className="p-8 bg-white/95 backdrop-blur-sm rounded-2xl 
+                            shadow-lg hover:shadow-xl border-2 border-gray-100 
+                            hover:border-[#00A8E8]/30 transition-all duration-500">
+                <div className="flex items-start gap-6">
+                  <div className="relative">
+                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#00A8E8]/10 to-blue-600/10 
+                                  flex items-center justify-center transform transition-all duration-500 
+                                  group-hover:scale-110 group-hover:rotate-6">
+                      <Brain className="w-8 h-8 text-[#00A8E8] transform transition-transform" />
+                    </div>
+                  </div>
+                  <div className="transform transition-all duration-500">
+                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#00A8E8] 
+                                 transition-colors">
+                      Inteligencia Artificial Avanzada
+                    </h3>
+                    <p className="text-gray-600 text-base leading-relaxed">
+                      Algoritmos de última generación para detección y análisis preciso de vehículos
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Procesamiento en Tiempo Real */}
-            <div className="group p-6 bg-white rounded-xl shadow-md hover:shadow-lg border border-gray-100 hover:border-[#00A8E8]/30 transition-all duration-300">
-              <div className="flex items-start gap-4">
-                <div className="relative">
-                  <Clock className="w-12 h-12 text-[#00A8E8] group-hover:scale-110 transition-transform" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-[#00A8E8] transition-colors">
-                    Procesamiento en Tiempo Real
-                  </h3>
-                  <p className="text-gray-600 text-base leading-relaxed">
-                    Respuesta instantánea y actualización continua de la información
-                  </p>
+            <div className="group">
+              <div className="p-8 bg-white/95 backdrop-blur-sm rounded-2xl 
+                            shadow-lg hover:shadow-xl border-2 border-gray-100 
+                            hover:border-[#00A8E8]/30 transition-all duration-500">
+                <div className="flex items-start gap-6">
+                  <div className="relative">
+                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#00A8E8]/10 to-blue-600/10 
+                                  flex items-center justify-center transform transition-all duration-500 
+                                  group-hover:scale-110 group-hover:rotate-6">
+                      <Clock className="w-8 h-8 text-[#00A8E8] transform transition-transform" />
+                    </div>
+                  </div>
+                  <div className="transform transition-all duration-500">
+                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#00A8E8] 
+                                 transition-colors">
+                      Procesamiento en Tiempo Real
+                    </h3>
+                    <p className="text-gray-600 text-base leading-relaxed">
+                      Respuesta instantánea y actualización continua de la información
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Análisis Predictivo */}
-            <div className="group p-6 bg-white rounded-xl shadow-md hover:shadow-lg border border-gray-100 hover:border-[#00A8E8]/30 transition-all duration-300">
-              <div className="flex items-start gap-4">
-                <div className="relative">
-                  <BarChart2 className="w-12 h-12 text-[#00A8E8] group-hover:scale-110 transition-transform" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-[#00A8E8] transition-colors">
-                    Análisis Predictivo
-                  </h3>
-                  <p className="text-gray-600 text-base leading-relaxed">
-                    Anticipación a situaciones y optimización proactiva del estacionamiento
-                  </p>
+            <div className="group">
+              <div className="p-8 bg-white/95 backdrop-blur-sm rounded-2xl 
+                            shadow-lg hover:shadow-xl border-2 border-gray-100 
+                            hover:border-[#00A8E8]/30 transition-all duration-500">
+                <div className="flex items-start gap-6">
+                  <div className="relative">
+                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#00A8E8]/10 to-blue-600/10 
+                                  flex items-center justify-center transform transition-all duration-500 
+                                  group-hover:scale-110 group-hover:rotate-6">
+                      <BarChart2 className="w-8 h-8 text-[#00A8E8] transform transition-transform" />
+                    </div>
+                  </div>
+                  <div className="transform transition-all duration-500">
+                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#00A8E8] 
+                                 transition-colors">
+                      Análisis Predictivo
+                    </h3>
+                    <p className="text-gray-600 text-base leading-relaxed">
+                      Anticipación a situaciones y optimización proactiva del estacionamiento
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -148,8 +196,6 @@ const TechnologySection: React.FC = () => (
 );
 
 const LandingPage: React.FC = () => {
-  const navigate = useNavigate();
-
   useEffect(() => {
     // Animación suave al hacer clic en los enlaces del menú
     document.querySelectorAll('a[href^="#"]').forEach((anchor: Element) => {
@@ -586,52 +632,32 @@ const LandingPage: React.FC = () => {
       {/* Agregar la nueva sección de tecnología antes del footer */}
       <TechnologySection />
 
-      {/* Footer Mejorado */}
-      <footer className="bg-gray-900 text-white py-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-            <div>
-              <h3 className="text-2xl font-bold mb-4">ParkingEyes</h3>
-              <p className="text-gray-300">
-                Transformando el futuro del estacionamiento con inteligencia artificial
-              </p>
+      {/* Footer minimalista y compacto */}
+      <footer className="bg-gray-900 text-white py-3"> {/* Reducido el padding vertical */}
+        <div className="max-w-[1000px] mx-auto"> {/* Ancho máximo controlado */}
+          <div className="flex items-center justify-between px-4">
+            {/* Copyright y nombre */}
+            <div className="flex items-center gap-2">
+              <span className="text-[11px] text-gray-400 tracking-wider">© 2025</span>
+              <span className="text-[11px] font-medium text-white tracking-wider">ParkingEyes</span>
             </div>
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Soluciones</h4>
-              <ul className="space-y-2">
-                <li><a href="#" className="hover:text-parking-blue transition-colors">Monitoreo</a></li>
-                <li><a href="#" className="hover:text-parking-blue transition-colors">Seguridad</a></li>
-                <li><a href="#" className="hover:text-parking-blue transition-colors">Análisis</a></li>
-              </ul>
+
+            {/* Links */}
+            <div className="flex items-center gap-6">
+              <a href="#" className="text-[11px] text-gray-400 hover:text-[#00A8E8] transition-colors tracking-wider">
+                Monitoreo
+              </a>
+              <a href="#" className="text-[11px] text-gray-400 hover:text-[#00A8E8] transition-colors tracking-wider">
+                Seguridad
+              </a>
+              <a href="#" className="text-[11px] text-gray-400 hover:text-[#00A8E8] transition-colors tracking-wider">
+                Análisis
+              </a>
             </div>
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Compañía</h4>
-              <ul className="space-y-2">
-                <li><a href="#" className="hover:text-parking-blue transition-colors">Sobre Nosotros</a></li>
-                <li><a href="#" className="hover:text-parking-blue transition-colors">Contacto</a></li>
-                <li><a href="#" className="hover:text-parking-blue transition-colors">Blog</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Conecta</h4>
-              <div className="flex space-x-4">
-                <button 
-                  onClick={() => navigate('/login')}
-                  className="bg-parking-blue px-6 py-3 rounded-full hover:bg-blue-600 transition-all transform hover:scale-105"
-                >
-                  Iniciar Sesión
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className="border-t border-gray-800 mt-16 pt-8">
-            <div className="max-w-4xl mx-auto text-center">
-              <p className="text-gray-400 text-sm leading-relaxed">
-                © 2024 ParkingEyes | Todos los derechos reservados
-              </p>
-              <p className="text-gray-500 text-xs mt-2">
-                Desarrollado con ❤️ por el equipo de ParkingEyes para revolucionar la gestión de estacionamientos
-              </p>
+
+            {/* Créditos */}
+            <div className="text-[10px] text-gray-400 tracking-wider">
+              Desarrollado con ❤️ por el equipo de ParkingEyes
             </div>
           </div>
         </div>
