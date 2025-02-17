@@ -1,3 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Colores personalizados */
+:root {
+  --primary: #00A8E8;
+  --primary-dark: #0077A3;
+  --secondary: #1A1A1A;
+  --accent: #FFD700;
+  --bg-gradient: linear-gradient(135deg, #001F3F 0%, #003366 100%);
+}
+
+/* Animaciones mejoradas */
+@keyframes blob {
+  0% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(20px, -20px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+/* Estilos de componentes */
+.hero-section {
+  @apply relative;
+  background: linear-gradient(135deg, #001F3F 0%, #003366 100%);
+  
+  &::before {
+    content: '';
+    @apply absolute inset-0 bg-black/30;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+}
+
+.feature-card {
+  @apply bg-white p-8 rounded-2xl transition-all duration-500;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  height: 100%;
+  max-height: 480px;
+  display: flex;
+  flex-direction: column;
+
+  .icon-wrapper {
+    @apply p-4 rounded-2xl mb-6 inline-flex items-center justify-center mx-auto;
+    background: linear-gradient(135deg, rgba(0, 168, 232, 0.1) 0%, rgba(0, 168, 232, 0.05) 100%);
+    transition: all 0.3s ease;
+  }
+
+  h3 {
+    @apply text-2xl font-bold mb-4 text-gray-900;
+  }
+
+  p {
+    @apply text-gray-600 mb-6;
+  }
+
+  ul {
+    @apply mt-auto;
+  }
+
+  li {
+    @apply flex items-start text-gray-600 mb-3;
+  }
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 168, 232, 0.12);
+
+    .icon-wrapper {
+      transform: scale(1.1);
+      background: linear-gradient(135deg, rgba(0, 168, 232, 0.2) 0%, rgba(0, 168, 232, 0.1) 100%);
+    }
+  }
+}
+
+.feature-card p {
+  @apply text-base leading-relaxed;
+}
+
+.feature-card ul li {
+  @apply text-sm py-1;
+}
+
+.benefit-card {
+  @apply p-8 rounded-2xl bg-gray-800/95 hover:bg-gray-800 transition-all duration-500 
+         transform hover:-translate-y-2 border border-gray-700 hover:border-[#00A8E8];
+}
+
+/* Efectos de hover mejorados */
+.hover-lift {
+  transition: transform 0.3s ease;
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+/* Efectos de brillo en botones */
+.button-glow {
+  @apply relative overflow-hidden shadow-lg;
+  &::after {
+    content: '';
+    @apply absolute inset-0 rounded-full opacity-0 transition-opacity duration-300
+           bg-gradient-to-r from-white/20 to-transparent;
+  }
+  &:hover::after {
+    @apply opacity-100;
+  }
+}
+
+/* Responsive padding y espaciado */
+.section-container {
+  @apply max-w-7xl mx-auto px-6 lg:px-12 py-20 lg:py-32;
+}
+
+.section-title {
+  @apply text-4xl lg:text-5xl font-bold text-center mb-16;
+  background: linear-gradient(120deg, var(--secondary) 0%, #434343 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-subtitle {
+  @apply text-xl text-gray-600 text-center max-w-3xl mx-auto mb-20;
+}
+
+/* Media queries para mejor responsive */
+@screen sm {
+  .hero-section {
+    @apply min-h-[85vh];
+  }
+}
+
+@screen lg {
+  .hero-section {
+    @apply min-h-screen;
+  }
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -133,4 +282,818 @@ footer {
     padding: 10px;
     color: white;
     font-size: 0.9rem;
+    position: relative;
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(to right, #00A8E8, #0077A3);
+    }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 1s ease-out;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.8s ease-out forwards;
+}
+
+.delay-200 {
+  animation-delay: 200ms;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
+}
+
+/* Scroll behavior */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+/* Agregar después de las animaciones existentes */
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-fade-in {
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+/* Retrasos escalonados para elementos en secuencia */
+.animate-on-scroll:nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+.animate-on-scroll:nth-child(3) {
+  transition-delay: 0.4s;
+}
+
+/* Mejora la transición del navbar */
+nav {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+nav.scrolled {
+  backdrop-filter: blur(8px);
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Animaciones para las cards */
+.feature-card, .benefit-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.feature-card:hover, .benefit-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Animación para botones */
+button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Efecto de parallax suave */
+.hero-section {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Efectos hover mejorados */
+.hover-lift {
+  transition: transform 0.3s ease-in-out;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+}
+
+/* Efecto de brillo en botones */
+.button-glow {
+  position: relative;
+  overflow: hidden;
+}
+
+.button-glow::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(45deg);
+  transition: all 0.3s ease-in-out;
+}
+
+.button-glow:hover::after {
+  transform: rotate(45deg) translate(50%, 50%);
+}
+
+/* Mejoras en la sección de características */
+#caracteristicas {
+  background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
+}
+
+#caracteristicas h2 {
+  background: linear-gradient(120deg, #1A1A1A 0%, #333333 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Animaciones suaves */
+.feature-card {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.feature-card:nth-child(1) { animation-delay: 0.1s; }
+.feature-card:nth-child(2) { animation-delay: 0.3s; }
+.feature-card:nth-child(3) { animation-delay: 0.5s; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animaciones mejoradas */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Stats mejorados */
+.stat-card {
+  @apply p-6 rounded-2xl text-center transition-all duration-500;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px);
+  }
+
+  .stat-number {
+    @apply text-5xl font-bold mb-2 text-white;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .stat-label {
+    @apply text-lg text-gray-300;
+  }
+}
+
+/* Botones mejorados */
+.btn-primary {
+  @apply px-8 py-4 rounded-full font-medium text-white transition-all duration-300 bg-[#00A8E8];
+  box-shadow: 0 4px 15px rgba(0, 168, 232, 0.3);
+
+  &:hover {
+    @apply bg-[#0077A3];
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 168, 232, 0.4);
+  }
+}
+
+.btn-outline {
+  @apply px-8 py-4 rounded-full font-medium text-white border-2 border-white/30 transition-all duration-300;
+  backdrop-filter: blur(5px);
+
+  &:hover {
+    @apply bg-white text-[#00A8E8];
+    transform: translateY(-2px);
+  }
+}
+
+/* Navbar mejorado */
+.navbar {
+  @apply fixed w-full z-50 transition-all duration-300;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.8);
+
+  &.scrolled {
+    @apply shadow-lg;
+    background: rgba(255, 255, 255, 0.95);
+  }
+}
+
+/* Efectos de hover */
+.hover-lift {
+  transition: transform 0.3s ease;
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+/* Scroll suave */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Animaciones por sección */
+.stagger-item {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.stagger-item:nth-child(2) { animation-delay: 0.2s; }
+.stagger-item:nth-child(3) { animation-delay: 0.4s; }
+.stagger-item:nth-child(4) { animation-delay: 0.6s; }
+
+/* Ajustes para la sección de beneficios */
+#beneficios {
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.1), transparent);
+  }
+}
+
+.copyright-text {
+  @apply text-sm text-gray-400 leading-relaxed max-w-3xl mx-auto;
+  line-height: 1.6;
+}
+
+/* Animaciones mejoradas */
+[data-aos] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+
+[data-aos].aos-animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Media queries para mejor responsividad */
+@media (max-width: 768px) {
+  .feature-card {
+    max-height: none;
+    padding: 6vw;
+  }
+
+  .icon-wrapper {
+    padding: 3vw;
+  }
+
+  h2 {
+    font-size: clamp(2rem, 5vw, 3rem);
+  }
+
+  p {
+    font-size: clamp(1rem, 3vw, 1.25rem);
+  }
+}
+
+/* Transiciones suaves */
+* {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Mejoras en la accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Animación para el texto */
+h1 span {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+h1 span:nth-child(1) { animation-delay: 0.1s; }
+h1 span:nth-child(2) { animation-delay: 0.2s; }
+h1 span:nth-child(3) { animation-delay: 0.3s; }
+h1 span:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Estilos mejorados para las estadísticas */
+.stat-box {
+  @apply bg-white/10 backdrop-blur-md rounded-xl p-4 text-center transition-all duration-300;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  min-width: 140px;
+
+  &:hover {
+    @apply transform -translate-y-2;
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .stat-number {
+    @apply text-4xl font-bold text-white mb-1;
+    text-shadow: 0 2px 10px rgba(0, 168, 232, 0.3);
+    line-height: 1;
+  }
+
+  .stat-label {
+    @apply text-base text-gray-200 font-medium;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Animación para las estadísticas */
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stat-box {
+  animation: countUp 0.8s ease-out forwards;
+}
+
+.stat-box:nth-child(1) { animation-delay: 0.2s; }
+.stat-box:nth-child(2) { animation-delay: 0.4s; }
+.stat-box:nth-child(3) { animation-delay: 0.6s; }
+
+/* Mejoras en la imagen del hero */
+.hero-section img {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  
+  &:hover {
+    transform: scale(1.02) translateY(-5px);
+  }
+}
+
+/* Efectos de luz mejorados */
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+@keyframes blob {
+  0% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(20px, -20px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+/* Animaciones para la sección de características */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.animation-delay-300 {
+  animation-delay: 300ms;
+}
+
+.animation-delay-500 {
+  animation-delay: 500ms;
+}
+
+.animation-delay-700 {
+  animation-delay: 700ms;
+}
+
+
+
+h2 span:hover {
+  color: #00A8E8;
+  transform: scale(1.2) rotate(5deg);
+}
+
+/* Mejoras visuales para las cards */
+.feature-card {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(0, 168, 232, 0.1),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.feature-card:hover::before {
+  left: 100%;
+}
+
+/* Animación para los iconos */
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Animaciones para la sección de beneficios */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 1s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.8s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animation-delay-150 {
+  animation-delay: 150ms;
+}
+
+.animation-delay-300 {
+  animation-delay: 300ms;
+}
+
+.animation-delay-500 {
+  animation-delay: 500ms;
+}
+
+.animation-delay-700 {
+  animation-delay: 700ms;
+}
+
+/* Animaciones suaves para el título de beneficios */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-title {
+  animation: fadeInUp 1.2s ease-out forwards;
+}
+
+.animate-subtitle {
+  animation: fadeInUp 1.2s ease-out 0.3s forwards;
+}
+
+/* Mejora la transición de las cards */
+.animate-slide-up {
+  animation: slideUp 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(4rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Nuevas animaciones para los iconos de estadísticas */
+@keyframes bounce-slow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes spin-slow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0) rotate(0);
+  }
+  50% {
+    transform: translateY(-15px) rotate(5deg);
+  }
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 3s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float-slow 4s ease-in-out infinite;
+}
+
+/* Animación para elevación automática de cards */
+@keyframes card-lift {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-card-lift {
+  animation: card-lift 6s ease-in-out infinite;
+}
+
+/* Delays escalonados para las cards */
+.animation-delay-0 {
+  animation-delay: 0s;
+}
+
+.animation-delay-300 {
+  animation-delay: 0.3s;
+}
+
+.animation-delay-600 {
+  animation-delay: 0.6s;
+}
+
+.animation-delay-900 {
+  animation-delay: 0.9s;
+}
+
+/* Mejoras en las animaciones de iconos */
+.animate-float-slow {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-bounce-slow {
+  animation: bounce 3s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0);
+  }
+  50% {
+    transform: translateY(-10px) rotate(5deg);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* Animación de brillo para los iconos */
+@keyframes glow {
+  0%, 100% {
+    opacity: 0.5;
+    filter: blur(10px);
+    transform: scale(1.2);
+  }
+  50% {
+    opacity: 0.8;
+    filter: blur(15px);
+    transform: scale(1.5);
+  }
+}
+
+.animate-glow {
+  animation: glow 3s ease-in-out infinite;
+}
+
+/* Estilos para las cards de estadísticas */
+.stat-card {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  transform-origin: center center;
+  border: 2px solid rgba(107, 114, 128, 0.5);
+}
+
+/* Animación para la card activa */
+.active-card {
+  animation: cardPulse 3s infinite;
+}
+
+@keyframes cardPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 168, 232, 0.2);
+    border-color: rgba(0, 168, 232, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px 10px rgba(0, 168, 232, 0.1);
+    border-color: rgba(0, 168, 232, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 168, 232, 0.2);
+    border-color: rgba(0, 168, 232, 0.3);
+  }
+}
+
+/* Efecto hover mejorado */
+.stat-card:hover {
+  transform: scale(1.1) translateY(-10px) !important;
+  z-index: 30 !important;
+  border-color: rgba(0, 168, 232, 0.5) !important;
+  box-shadow: 0 10px 25px rgba(0, 168, 232, 0.2) !important;
+}
+
+/* Mejora el contenedor de las cards */
+.stat-card-container {
+  perspective: 1000px;
+}
+
+/* Transición suave para todas las propiedades */
+.stat-card {
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Efecto hover mejorado */
+.stat-card:hover {
+  transform: scale(1.1) translateY(-10px) !important;
+  z-index: 30 !important;
+}
+
+/* Animación del icono para la card activa */
+.active-card .icon-container {
+  animation: iconPulse 1.5s infinite;
+}
+
+@keyframes iconPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
