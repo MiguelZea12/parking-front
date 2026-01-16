@@ -1,5 +1,5 @@
 export const login = async (email: string, password: string) => {
-    const response = await fetch('https://3kfc8nmn-5000.use.devtunnels.ms/login', {
+    const response = await fetch('http://127.0.0.1:5000/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password }),
@@ -24,7 +24,7 @@ export const login = async (email: string, password: string) => {
     const token = localStorage.getItem('token');
   
     if (token) {
-      await fetch('https://3kfc8nmn-5000.use.devtunnels.ms/logout', {
+      await fetch('http://127.0.0.1:5000/logout', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -39,7 +39,9 @@ export const login = async (email: string, password: string) => {
   
   
   export const isAuthenticated = () => {
-    return !!localStorage.getItem('token');
+    // TEMPORAL: Siempre retorna true para permitir navegación sin login
+    return true;
+    // return !!localStorage.getItem('token');
   };
   
   

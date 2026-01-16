@@ -17,13 +17,13 @@ const Home: React.FC = () => {
     {
       id: '1',
       name: 'Cámara Principal',
-      url: 'https://3kfc8nmn-5000.use.devtunnels.ms/video_feed',
+      url: 'http://127.0.0.1:5000/video_feed',
       location: 'Entrada Principal'
     },
     {
       id: '2',
       name: 'Cámara Secundaria',
-      url: 'https://3kfc8nmn-5000.use.devtunnels.ms/video_feed2',
+      url: 'http://127.0.0.1:5000/video_feed2',
       location: 'Área Norte'
     },
   ];

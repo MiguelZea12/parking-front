@@ -9,7 +9,7 @@ export interface Usuario {
     email?: string;
   }
   
-  const API_URL = 'https://3kfc8nmn-5000.use.devtunnels.ms';
+  const API_URL = 'https://cnsh919d-5000.use2.devtunnels.ms/';
   
   export const getUsuarios = async () => {
     const token = localStorage.getItem('token');

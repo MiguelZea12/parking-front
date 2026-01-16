@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import Home from './pages/home/Home';
@@ -63,16 +63,17 @@ const App: React.FC = () => {
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/home" element={isAuthenticated() ? <Home /> : <Navigate to="/login" />} />
-            <Route path="/estadisticas" element={isAuthenticated() ? <Estadistic /> : <Navigate to="/login" />} />
-            <Route path="/estadisticas/graficos" element={isAuthenticated() ? <EnhancedStatistics /> : <Navigate to="/login" />} />
-            <Route path="/estadisticas/Historial" element={isAuthenticated() ? <StatisticsHistory /> : <Navigate to="/login" />} />
-            <Route path="/estadisticas/Reportes" element={isAuthenticated() ? <StatisticsReports /> : <Navigate to="/login" />} />
-            <Route path="/mapa" element={isAuthenticated() ? <MapaPage /> : <Navigate to="/login" />} />
-            <Route path="/database/usuarios" element={isAuthenticated() ? <Users /> : <Navigate to="/login" />} />
-            <Route path="/database/placas" element={isAuthenticated() ? <Placas /> : <Navigate to="/login" />} />
-            <Route path="/configuracion" element={isAuthenticated() ? <ConfiguracionPage /> : <Navigate to="/login" />} />
-            <Route path="/configuracion/usuario" element={isAuthenticated() ? <UserProfile /> : <Navigate to="/login" />} />
+            {/* TEMPORAL: Rutas sin verificación de autenticación */}
+            <Route path="/home" element={<Home />} />
+            <Route path="/estadisticas" element={<Estadistic />} />
+            <Route path="/estadisticas/graficos" element={<EnhancedStatistics />} />
+            <Route path="/estadisticas/Historial" element={<StatisticsHistory />} />
+            <Route path="/estadisticas/Reportes" element={<StatisticsReports />} />
+            <Route path="/mapa" element={<MapaPage />} />
+            <Route path="/database/usuarios" element={<Users />} />
+            <Route path="/database/placas" element={<Placas />} />
+            <Route path="/configuracion" element={<ConfiguracionPage />} />
+            <Route path="/configuracion/usuario" element={<UserProfile />} />
           </Routes>
         </Layout>
       </Router>
